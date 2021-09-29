@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/css.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/templatemo-style.css">
+	<title>Apple icon</title>
+</head>
+<style>
+	body {
+		margin: 0;
+		height: 100vh;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		background-color: #ccc;
+	}
+	
+	.icon {
+		margin-top: 300px;
+		width: 10em;
+		height: 10em;
+		font-size: 20px;
+		background-color: #eee;
+		border-radius: 20%;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		box-sizing: border-box;
+		padding: 1em;
+		
+	}
+	
+	.icon span {
+		opacity: 0;
+		position: absolute;
+		width: 22.5%;
+		height: 37.5%;
+		border-radius: 50% / 30%;
+		transform-origin: center 105%;
+		/*transform: rotate(calc((var(--n) - 1) * 45deg));*/
+		background-color: var(--c);
+		mix-blend-mode: multiply;
+		transition: all 2s ease-in-out;
+		/*animation: rotated 2s ease-in-out forwards;*/
+	}
+	
+	.icon:hover span {
+		opacity: 1;
+		/*animation: rotating 2s ease-in-out forwards;*/
+		transform: rotate(calc((var(--n) - 1) * 45deg));
+	}
+	
+	/*@keyframes rotated {*/
+	/*	0% {*/
+	/*		transform: rotate(calc((var(--n) - 1) * 45deg));*/
+	/*		*/
+	/*	}*/
+	/*	*/
+	/*	100% {*/
+	/*		transform: rotate(0deg);*/
+	/*	}*/
+	/*	*/
+	/*}*/
+	
+	/*@keyframes rotating {*/
+	/*	0% {*/
+	/*		transform: rotate(0deg);*/
+	/*	}*/
+	/*	*/
+	/*	100% {*/
+	/*		transform: rotate(calc((var(--n) - 1) * 45deg));*/
+	/*	}*/
+	/*	*/
+	/*}*/
+	
+	.icon span:nth-child(1) {
+		--n: 9;
+		--c: rgba(243, 156, 18, 0.7);
+		opacity: 1;
+	}
+	
+	.icon span:nth-child(2) {
+		--n: 2;
+		--c: rgba(241, 196, 15, 0.7);
+	}
+	
+	.icon span:nth-child(3) {
+		--n: 3;
+		--c: rgba(46, 204, 113, 0.7);
+	}
+	
+	.icon span:nth-child(4) {
+		--n: 4;
+		--c: rgba(27, 188, 155, 0.7);
+	}
+	
+	.icon span:nth-child(5) {
+		--n: 5;
+		--c: rgba(65, 131, 215, 0.7);
+	}
+	
+	.icon span:nth-child(6) {
+		--n: 6;
+		--c: rgba(102, 51, 153, 0.7);
+	}
+	
+	.icon span:nth-child(7) {
+		--n: 7;
+		--c: rgba(155, 89, 182, 0.7);
+	}
+	
+	.icon span:nth-child(8) {
+		--n: 8;
+		--c: rgba(242, 38, 19, 0.7);
+		opacity: 1;
+	}
+
+</style>
+<body style="height: 2800px; position: relative">
+<div class="fixed-header scroll">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.html">Luwu</a>
+		</div>
+		<nav class="main-menu">
+			<ul>
+				<li><a href="#home" class="current">作业</a></li>
+				<li><a href="#services" class="">作业</a></li>
+				<li><a href="#clients" class="">还是作业</a></li>
+				<li><a class="external" href="https://github.com/Yerik007/yueqian" target="_blank">My GitHub</a></li>
+				<li><a href="#contact" class="">一些话</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<div class="icon">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+
+
+<div class="text-center footer" style="position: absolute; bottom: 0 ;margin:0 auto">
+	<div class="container" id="contact">
+		Copyright @ 2021 Company 陆吾
+		
+		| PersonalSpace in <a href="https://github.com/Yerik007" target="_blank" title="Github个人空间">GitHub</a> - PersonalSpace in <a href="https://gitee.com/King-Gigi" title="网页模板" target="_blank">Gitee</a>
+	</div>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.singlePageNav.min.js"></script>
+
+<script>
+	
+	// Check scroll position and add/remove background to navbar
+	function checkScrollPosition() {
+		if($(window).scrollTop() > 50) {
+			$(".fixed-header").addClass("scroll");
+		} else {
+			$(".fixed-header").removeClass("scroll");
+		}
+	}
+	
+	$(document).ready(function () {
+		// Single page nav
+		$('.fixed-header').singlePageNav({
+			offset: 59,
+			filter: ':not(.external)',
+			updateHash: true
+		});
+		
+		checkScrollPosition();
+		
+		// nav bar
+		$('.navbar-toggle').click(function(){
+			$('.main-menu').toggleClass('show');
+		});
+		
+		$('.main-menu a').click(function(){
+			$('.main-menu').removeClass('show');
+		});
+	});
+	
+	$(window).on("scroll", function() {
+		checkScrollPosition();
+	});
+</script>
+</body>
+</html>
