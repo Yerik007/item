@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 300px;
+            background-color: lightgreen;
+            margin: 100px auto;
+            text-align: center;
+        }
+        ul,li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            width: 1000px;
+            height: 100px;
+            background-image: linear-gradient(to right, plum,salmon,slateblue,#1b6d85);
+            display: flex;
+            padding: 20px 0;
+            justify-content: space-around;
+            margin-top: 67px;
+        }
+        li {
+            width: 100px;
+            height: 100px;
+            border: 4px solid slategrey;
+            background-color: white;
+            border-radius: 50%;
+            line-height: 100px;
+            text-align: center;
+            font-size: 40px;
+            color: orangered;
+        }
+        .active {
+            border: 4px solid slategrey;
+            background-color: orangered;
+            color: white;
+        }
+        button {
+            height: 30px;
+            border: 2px solid violet;
+            border-radius: 5px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>一个顶俩双色球，绿到你发慌</h1>
+        <button>搏一搏，裤衩都给你输光</button>
+        <ul>
+            <li>00</li>
+            <li>00</li>
+            <li>00</li>
+            <li>00</li>
+            <li>00</li>
+            <li>00</li>
+            <li class="active">00</li>
+        </ul>
+    </div>
+    <script>
+        // 1~33数组
+        let arr = [];
+        for(let i = 1; i < 33; i++){
+            arr.push(i);
+        }
+        // 1~16数组
+        let aly = [];
+        for(let j = 1; j < 16; j++){
+            aly.push(j);
+        }
+
+        // 获取dom对象函数
+        let fn =  e => {
+            let dd = document.querySelectorAll(e);
+            if(dd.length ==1){
+                return dd[0];
+            }else {
+                return dd;
+            }
+        }
+
+        // 1~33数组随机排序
+        let sui = arr => {
+            let cloneArr = arr.concat();
+            cloneArr.sort((n1,n2) => (Math.random() -0.5 ) );
+            // 拿到1~33数组前面六个
+            for(let k = 0; k < 6; k++) {
+                fn("li")[k].innerHTML = cloneArr[k];
+            }
+        }
+
+        // 1~16数组随机出现一个
+        let kaijiang = () => {
+            let {random} = Math;
+            let _random = Math.floor( random()*15 );
+            fn("li")[6].innerHTML = aly[_random];
+        }
+
+        // 点击开奖按钮
+        fn("button").onclick = () => {
+            // 调用最后一个开奖号码的函数
+            kaijiang()
+            // 调用前面六个开奖号码的函数
+            sui(arr)
+            
+        }
+        // 调用最后一个开奖号码的函数
+        kaijiang()
+        // 调用前面六个开奖号码的函数
+        sui(arr)
+        
+    </script>
+</body>
+</html>
