@@ -13,10 +13,11 @@ body{
     padding:0;
     background-image:url(../img/back.jpg);
     background-repeat:no-repeat;
-    background-size:100% 100%;
+    
+    background-size:cover;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    font-weight:300;
+    font-weight:300;11
 }
 .row {
     margin-right: 0px;
@@ -110,7 +111,13 @@ p {
 .content-item {
     padding-right: 0px;
     padding-left: 0px;
-    min-height:570px !important;
+    max-height:470px ;
+}
+.content-item img{
+    background-size: cover;
+    max-height:470px ;
+    /*min-height: 235px;*/
+    width: 44vw ;
 }
 .content-item p:last-child {
     margin-bottom: 0;
